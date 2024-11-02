@@ -9,5 +9,4 @@ public class SanatoriumComplexApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SanatoriumComplexApplication.class, args);
 	}
-
 }
