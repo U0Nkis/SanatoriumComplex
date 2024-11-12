@@ -7,7 +7,7 @@
     <link rel="stylesheet" th:href="@{/css/style.css}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600&display=swap" rel="stylesheet">
 </head>
 <body>
 <!-- Шапка сайта -->
@@ -18,11 +18,12 @@
         </div>
         <nav>
             <ul>
-                <li><a href="#">Главная</a></li>
-                <li><a href="#">Процедуры</a></li>
-                <li><a href="#">Номера</a></li>
+                <li><a th:href="@{/}">Главная</a></li>
+                <li><a th:href="@{/procedures}">Процедуры</a></li>
+                <li><a th:href="@{/rooms}">Номера</a></li>
                 <li><a href="#">Бронирование</a></li>
                 <li><a href="#">Контакты</a></li>
+                <li><a th:href="@{/customers}" class="btn client-btn">Клиенты</a></li>
             </ul>
         </nav>
     </div>
@@ -83,7 +84,7 @@
 <!-- Футер -->
 <footer>
     <div class="container">
-        <p>&copy; 2024 Санаторий. Все права защищены.</p>
+        <p>&copy; 2024 SanaDuna. Все права защищены.</p>
         <ul class="wrapper">
             <li class="icon facebook">
                 <span class="tooltip">Facebook</span>

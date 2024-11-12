@@ -1,4 +1,4 @@
-package org.example.sanatoriumcomplex;
+package ru.vsu.cs.trufanov.sanatoriumcomplex;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
