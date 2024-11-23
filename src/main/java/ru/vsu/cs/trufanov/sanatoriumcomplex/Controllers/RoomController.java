@@ -5,7 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import ru.vsu.cs.trufanov.sanatoriumcomplex.Models.Procedures;
+import ru.vsu.cs.trufanov.sanatoriumcomplex.Models.Room;
 import ru.vsu.cs.trufanov.sanatoriumcomplex.Services.RoomService;
 
 import java.util.Optional;
@@ -24,12 +24,12 @@ public class RoomController {
 
     @GetMapping("/add")
     public String showAddRoomsForm(Model model) {
-        model.addAttribute("room", new Procedures());
+        model.addAttribute("room", new Room());
         return "rooms/form";
     }
 
     @PostMapping("/save")
-    public String saveRoom(@ModelAttribute("room") Procedures room, BindingResult result) {
+    public String saveRoom(@ModelAttribute("room") Room room, BindingResult result) {
         if (result.hasErrors()) {
             return "rooms/form";
         }
@@ -39,7 +39,7 @@ public class RoomController {
 
     @GetMapping("/edit/{id}")
     public String showEditRoomForm(@PathVariable("id") Integer id, Model model) {
-        Optional<Procedures> room = roomService.findRoomById(id);
+        Optional<Room> room = roomService.findRoomById(id);
         if (room.isPresent()) {
             model.addAttribute("room", room.get());
             return "rooms/form";

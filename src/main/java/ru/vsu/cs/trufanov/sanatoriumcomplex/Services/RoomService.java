@@ -2,7 +2,7 @@ package ru.vsu.cs.trufanov.sanatoriumcomplex.Services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ru.vsu.cs.trufanov.sanatoriumcomplex.Models.Procedures;
+import ru.vsu.cs.trufanov.sanatoriumcomplex.Models.Room;
 import ru.vsu.cs.trufanov.sanatoriumcomplex.Repository.api.RoomRepository;
 
 import java.util.List;
@@ -13,15 +13,15 @@ public class RoomService {
     @Autowired
     private RoomRepository roomRepository;
 
-    public List<Procedures> findAllRooms() {
+    public List<Room> findAllRooms() {
         return roomRepository.findAll();
     }
 
-    public Optional<Procedures> findRoomById(Integer id) {
+    public Optional<Room> findRoomById(Integer id) {
         return roomRepository.findById(id);
     }
 
-    public Procedures saveRoom(Procedures room) {
+    public Room saveRoom(Room room) {
         return roomRepository.save(room);
     }
 

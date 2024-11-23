@@ -1,10 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>List of procedures</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
-
+<header>
+    <div class="container">
+        <div class="logo">
+            <h1>SanaDuna</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a th:href="@{/}">Main</a></li>
+                <li><a th:href="@{/procedures}" class="btn client-btn">Procedures</a></li>
+                <li><a th:href="@{/rooms}" class="btn client-btn">Rooms</a></li>
+                <li><a href="#">Booking</a></li>
+                <li><a href="#">Our contacts</a></li>
+                <li><a th:href="@{/customers}" class="btn client-btn">Customers</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<h1>List of procedures</h1>
+<a th:href="@{/procedures/add}" class="btn">Add a new procedure</a>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Procedure name</th>
+        <th>Description</th>
+        <th>Duration (minutes)</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="procedure : ${procedures}">
+        <td th:text="${procedure.id}"></td>
+        <td th:text="${procedure.procedureName}"></td>
+        <td th:text="${procedure.description}"></td>
+        <td th:text="${procedure.durationMinutes}"></td>
+        <td>
+            <a th:href="@{/procedures/edit/{id}(id=${procedure.id})}">Edit</a>
+            <a th:href="@{/procedures/delete/{id}(id=${procedure.id})}">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>

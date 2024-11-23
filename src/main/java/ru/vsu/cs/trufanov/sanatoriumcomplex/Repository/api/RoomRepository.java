@@ -2,8 +2,8 @@ package ru.vsu.cs.trufanov.sanatoriumcomplex.Repository.api;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import ru.vsu.cs.trufanov.sanatoriumcomplex.Models.Procedures;
+import ru.vsu.cs.trufanov.sanatoriumcomplex.Models.Room;
 
 @Repository
-public interface RoomRepository extends JpaRepository<Procedures, Integer> {
+public interface RoomRepository extends JpaRepository<Room, Integer> {
 }

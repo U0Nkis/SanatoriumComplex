@@ -7,7 +7,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import ru.vsu.cs.trufanov.sanatoriumcomplex.Models.Procedures;
 import ru.vsu.cs.trufanov.sanatoriumcomplex.Services.ProceduresService;
-import ru.vsu.cs.trufanov.sanatoriumcomplex.Services.RoomService;
 
 import java.util.Optional;
 
@@ -42,7 +41,7 @@ public class ProceduresController {
     public String showEditProceduresForm(@PathVariable("id") Integer id, Model model) {
         Optional<Procedures> procedures = proceduresService.findProceduresById(id);
         if (procedures.isPresent()) {
-            model.addAttribute("procedures", procedures.get());
+            model.addAttribute("procedure", procedures.get());
             return "procedures/form";
         } else {
             return "redirect:/procedures";

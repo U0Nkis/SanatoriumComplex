@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Список клиентов</title>
+    <title>List of customers</title>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
@@ -14,28 +14,28 @@
         </div>
         <nav>
             <ul>
-                <li><a th:href="@{/}">Главная</a></li>
-                <li><a th:href="@{/procedures}">Процедуры</a></li>
-                <li><a th:href="@{/rooms}">Номера</a></li>
-                <li><a href="#">Бронирование</a></li>
-                <li><a href="#">Контакты</a></li>
-                <li><a th:href="@{/customers}" class="btn client-btn">Клиенты</a></li>
+                <li><a th:href="@{/}">Main</a></li>
+                <li><a th:href="@{/procedures}" class="btn client-btn">Procedures</a></li>
+                <li><a th:href="@{/rooms}" class="btn client-btn">Rooms</a></li>
+                <li><a href="#">Booking</a></li>
+                <li><a href="#">Our contacts</a></li>
+                <li><a th:href="@{/customers}" class="btn client-btn">Customers</a></li>
             </ul>
         </nav>
     </div>
 </header>
-<h1>Список клиентов</h1>
-<a th:href="@{/customers/add}" class="btn">Добавить нового клиента</a>
+<h1>List of Customers</h1>
+<a th:href="@{/customers/add}" class="btn">Add a new customer</a>
 <table>
     <thead>
     <tr>
         <th>ID</th>
-        <th>Имя</th>
-        <th>Фамилия</th>
-        <th>Дата рождения</th>
-        <th>Телефон</th>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Date of birth</th>
+        <th>Phone number</th>
         <th>Email</th>
-        <th>Действия</th>
+        <th>Actions</th>
     </tr>
     </thead>
     <tbody>
@@ -47,8 +47,8 @@
         <td th:text="${customer.phone}"></td>
         <td th:text="${customer.email}"></td>
         <td>
-            <a th:href="@{/customers/edit/{id}(id=${customer.id})}">Редактировать</a>
-            <a th:href="@{/customers/delete/{id}(id=${customer.id})}">Удалить</a>
+            <a th:href="@{/customers/edit/{id}(id=${customer.id})}">Edit</a>
+            <a th:href="@{/customers/delete/{id}(id=${customer.id})}">Delete</a>
         </td>
     </tr>
     </tbody>
