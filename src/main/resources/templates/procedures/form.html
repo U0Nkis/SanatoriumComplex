@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <title th:text="${procedure.id == null ? 'Add procedure' : 'Edit procedure'}"></title>
+  <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
-<h1 th:text="${procedure.id == null ? 'Add customer' : 'Edit customer'}"></h1>
+<h1 th:text="${procedure.id == null ? 'Add procedure' : 'Edit procedure'}"></h1>
 <form th:action="@{/procedures/save}" th:object="${procedure}" method="post">
   <div>
     <label for="procedureName">Procedure name:</label>

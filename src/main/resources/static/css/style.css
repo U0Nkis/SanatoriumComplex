@@ -567,3 +567,114 @@ a:hover {
 .btn.client-btn:hover {
     background-color: #e4405f;
 }
+
+/* Стили для страницы формы */
+form {
+    background-color: white;
+    padding: 2rem;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    max-width: 600px;
+    margin: 2rem auto;
+    font-family: 'Montserrat', sans-serif;
+}
+
+form h1 {
+    text-align: center;
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+form div {
+    margin-bottom: 1.5rem;
+}
+
+form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #555;
+}
+
+form input,
+form textarea,
+form button {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-top: 0.25rem;
+}
+
+form input:focus,
+form textarea:focus {
+    outline: none;
+    border-color: #ff6b6b;
+    box-shadow: 0 0 5px rgba(255, 107, 107, 0.5);
+}
+
+form textarea {
+    resize: none;
+}
+
+form button {
+    background-color: #ff6b6b;
+    color: white;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+form button:hover {
+    background-color: #e55a5a;
+}
+
+form a {
+    display: inline-block;
+    margin-top: 1rem;
+    text-align: center;
+    color: #555;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+form a:hover {
+    color: #ff6b6b;
+}
+
+form span {
+    color: #e55a5a;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    display: block;
+}
+
+/* Выравнивание кнопок */
+form div:last-child {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+form div:last-child button,
+form div:last-child a {
+    width: 48%;
+    text-align: center;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    form {
+        padding: 1.5rem;
+    }
+
+    form div:last-child button,
+    form div:last-child a {
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+}
+
