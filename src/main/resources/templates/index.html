@@ -14,15 +14,14 @@
 <header>
     <div class="container">
         <div class="logo">
-            <h1>SanaDuna</h1>
+            <h1>SanaDuna - Admin</h1>
         </div>
         <nav>
             <ul>
-                <li><a th:href="@{/}">Главная</a></li>
-                <li><a th:href="@{/procedures}" class="btn client-btn">Процедуры</a></li>
-                <li><a th:href="@{/rooms}" class="btn client-btn">Номера</a></li>
-                <li><a href="#">Бронирование</a></li>
-                <li><a href="#">Контакты</a></li>
+                <li><a th:href="@{/}">Main</a></li>
+                <li><a th:href="@{/procedures}" class="btn client-btn">Procedures</a></li>
+                <li><a th:href="@{/rooms}" class="btn client-btn">Rooms</a></li>
+                <li><a href="#">Booking</a></li>
                 <li><a th:href="@{/customers}" class="btn client-btn">Клиенты</a></li>
             </ul>
         </nav>
@@ -39,52 +38,53 @@
     </div>
 </section>
 
-<!-- Услуги -->
-<section class="services">
+<section class="admin-panel">
     <div class="container">
-        <h2>Наши процедуры</h2>
-        <div class="service-items">
-            <div class="service-item">
-                <h3>Массаж</h3>
-                <p>Расслабляющий массаж для восстановления сил и здоровья.</p>
+        <h2>Управление Процедурами</h2>
+        <div class="panel-actions">
+            <a href="#" class="btn admin-btn">Добавить Процедуру</a>
+            <a href="#" class="btn secondary">Просмотреть Все Процедуры</a>
+        </div>
+    </div>
+</section>
+
+
+<section class="admin-panel">
+    <div class="container">
+        <h2>Клиенты</h2>
+        <div class="panel-actions">
+            <a href="#" class="btn admin-btn">Добавить Клиента</a>
+            <a href="#" class="btn secondary">Управление Клиентами</a>
+        </div>
+    </div>
+</section>
+
+<section class="statistics">
+    <div class="container">
+        <h2>Статистика</h2>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h3>Клиентов</h3>
+                <p>1001</p>
             </div>
-            <div class="service-item">
-                <h3>Терапия грязями</h3>
-                <p>Улучшение здоровья кожи и суставов с помощью целебных грязей.</p>
+            <div class="stat-card">
+                <h3>Процедур</h3>
+                <p>44</p>
             </div>
-            <div class="service-item">
-                <h3>Лечебные ванны</h3>
-                <p>Оздоровительные ванны с минеральной водой для восстановления баланса.</p>
+            <div class="stat-card">
+                <h3>Бронирований</h3>
+                <p>∞</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Информация о номерах -->
-<section class="rooms">
-    <div class="container">
-        <h2>Номера</h2>
-        <div class="room-items">
-            <div class="room-item">
-                <h3>Одноместный номер</h3>
-                <p>Уютный одноместный номер с удобствами и видом на природу.</p>
-            </div>
-            <div class="room-item">
-                <h3>Двухместный номер</h3>
-                <p>Комфортный номер с двумя кроватями для полноценного отдыха.</p>
-            </div>
-            <div class="room-item">
-                <h3>Люкс</h3>
-                <p>Роскошный номер с улучшенными условиями для вашего удобства.</p>
-            </div>
-        </div>
-    </div>
-</section>
 
 <!-- Футер -->
 <footer>
     <div class="container">
         <p>&copy; 2024 SanaDuna. Все права защищены.</p>
+        <p><a th:href="@{/}" class="btn">Вернуться на сайт</a></p>
         <ul class="wrapper">
             <li class="icon facebook">
                 <span class="tooltip">Facebook</span>
