@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>List of rooms</title>
+    <title>List of Staff</title>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
@@ -24,25 +24,27 @@
         </nav>
     </div>
 </header>
-<h1>List of rooms</h1>
-<a th:href="@{/rooms/add}" class="btn">Add a new room</a>
+<h1>List of Staff</h1>
+<a th:href="@{/staff/add}" class="btn">Add a new staff member</a>
 <table>
     <thead>
     <tr>
         <th>ID</th>
-        <th>Room number</th>
-        <th>Capacity</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Specialization</th>
         <th>Actions</th>
     </tr>
     </thead>
     <tbody>
-    <tr th:each="room : ${rooms}">
-        <td th:text="${room.id}"></td>
-        <td th:text="${room.roomNumber}"></td>
-        <td th:text="${room.capacity}"></td>
+    <tr th:each="staff : ${staff}">
+        <td th:text="${staff.id}"></td>
+        <td th:text="${staff.firstName}"></td>
+        <td th:text="${staff.lastName}"></td>
+        <td th:text="${staff.specialization}"></td>
         <td>
-            <a th:href="@{/rooms/edit/{id}(id=${room.id})}">Edit</a>
-            <a th:href="@{/rooms/delete/{id}(id=${room.id})}">Delete</a>
+            <a th:href="@{/staff/edit/{id}(id=${staff.id})}">Edit</a>
+            <a th:href="@{/staff/delete/{id}(id=${staff.id})}">Delete</a>
         </td>
     </tr>
     </tbody>

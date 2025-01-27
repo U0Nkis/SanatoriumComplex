@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import ru.vsu.cs.trufanov.sanatoriumcomplex.Models.Customer;
 import ru.vsu.cs.trufanov.sanatoriumcomplex.Models.Procedures;
 import ru.vsu.cs.trufanov.sanatoriumcomplex.Services.ProceduresService;
 
@@ -42,10 +43,16 @@ public class ProceduresController {
         Optional<Procedures> procedures = proceduresService.findProceduresById(id);
         if (procedures.isPresent()) {
             model.addAttribute("procedure", procedures.get());
-            return "procedures/form";
+            return "procedures/edit-form";
         } else {
             return "redirect:/procedures";
         }
+    }
+
+    @PostMapping("edit/{id}")
+    public String updateProcedure(@PathVariable("id") Integer id, @ModelAttribute("procedure") Procedures procedure) {
+        proceduresService.saveProcedures(procedure);
+        return "redirect:/procedures";
     }
 
     @GetMapping("/delete/{id}")

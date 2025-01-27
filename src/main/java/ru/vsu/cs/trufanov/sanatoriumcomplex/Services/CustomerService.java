@@ -1,6 +1,8 @@
 package ru.vsu.cs.trufanov.sanatoriumcomplex.Services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import ru.vsu.cs.trufanov.sanatoriumcomplex.Models.Customer;
 import ru.vsu.cs.trufanov.sanatoriumcomplex.Repository.api.CustomerRepository;
@@ -14,9 +16,10 @@ public class CustomerService {
     @Autowired
     private CustomerRepository customerRepository;
 
-    public List<Customer> findAllCustomers() {
-        return customerRepository.findAll();
+    public Page<Customer> findAllCustomers(Pageable pageable) {
+        return customerRepository.findAll(pageable);
     }
+
 
     public Optional<Customer> findCustomerById(Integer id) {
         return customerRepository.findById(id);

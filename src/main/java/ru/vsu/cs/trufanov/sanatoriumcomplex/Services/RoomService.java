@@ -14,7 +14,7 @@ public class RoomService {
     private RoomRepository roomRepository;
 
     public List<Room> findAllRooms() {
-        return roomRepository.findAll();
+        return roomRepository.findAll().stream().sorted((o1, o2) -> o1.getId().compareTo(o2.getId())).toList();
     }
 
     public Optional<Room> findRoomById(Integer id) {

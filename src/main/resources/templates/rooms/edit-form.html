@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${room.id == null ? 'Add room' : 'Edit room'}"></title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<h1 th:text="${room.id == null ? 'Add room' : 'Edit room'}"></h1>
+<form th:action="@{/rooms/edit/{id}(id=${room.id})}" th:object="${room}" method="post">
+    <div>
+        <label for="roomNumber">Room number:</label>
+        <input type="text" id="roomNumber" th:field="*{roomNumber}" readonly required>
+        <span th:if="${#fields.hasErrors('roomNumber')}" th:errors="*{roomNumber}"></span>
+    </div>
+    <div>
+        <label for="capacity">Capacity:</label>
+        <input type="number" id="capacity" th:field="*{capacity}" required min="1">
+        <span th:if="${#fields.hasErrors('capacity')}" th:errors="*{capacity}"></span>
+    </div>
+    <div>
+        <button type="submit">Save</button>
+        <a th:href="@{/rooms}">Cancel</a>
+    </div>
+</form>
+
+</body>
+</html>

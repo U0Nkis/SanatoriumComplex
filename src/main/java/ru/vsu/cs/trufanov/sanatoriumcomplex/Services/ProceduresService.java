@@ -14,7 +14,7 @@ public class ProceduresService {
     private ProcedureRepository procedureRepository;
 
     public List<Procedures> findAllProcedures() {
-        return procedureRepository.findAll();
+        return procedureRepository.findAll().stream().sorted((o1, o2) -> o1.getId().compareTo(o2.getId())).toList();
     }
 
     public Optional<Procedures> findProceduresById(Integer id) {

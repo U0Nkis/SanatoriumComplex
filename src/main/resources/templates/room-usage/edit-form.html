@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${roomUsage.id == null ? 'Add Room Usage' : 'Edit Room Usage'}"></title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<h1 th:text="${roomUsage.id == null ? 'Add Room Usage' : 'Edit Room Usage'}"></h1>
+<form th:action="@{/room-usage/edit/{id}(id=${roomUsage.id})}" th:object="${roomUsage}" method="post">
+    <div>
+        <label for="room">Room ID:</label>
+        <input type="text" id="room" th:field="*{room}" required>
+        <span th:if="${#fields.hasErrors('room')}" th:errors="*{room}"></span>
+    </div>
+    <div>
+        <label for="procedure">Procedure ID:</label>
+        <input type="text" id="procedure" th:field="*{procedure}" required>
+        <span th:if="${#fields.hasErrors('procedure')}" th:errors="*{procedure}"></span>
+    </div>
+    <div>
+        <label for="staff">Staff ID:</label>
+        <input type="text" id="staff" th:field="*{staff}" required>
+        <span th:if="${#fields.hasErrors('staff')}" th:errors="*{staff}"></span>
+    </div>
+    <div>
+        <label for="startTime">Start Time:</label>
+        <input type="datetime-local" id="startTime" th:field="*{startTime}" required>
+        <span th:if="${#fields.hasErrors('startTime')}" th:errors="*{startTime}"></span>
+    </div>
+    <div>
+        <label for="endTime">End Time:</label>
+        <input type="datetime-local" id="endTime" th:field="*{endTime}" required>
+        <span th:if="${#fields.hasErrors('endTime')}" th:errors="*{endTime}"></span>
+    </div>
+    <div>
+        <button type="submit">Save</button>
+        <a th:href="@{/room-usage}">Cancel</a>
+    </div>
+</form>
+</body>
+</html>

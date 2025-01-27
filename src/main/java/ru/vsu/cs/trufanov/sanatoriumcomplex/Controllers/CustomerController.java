@@ -1,6 +1,8 @@
 package ru.vsu.cs.trufanov.sanatoriumcomplex.Controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -18,8 +20,9 @@ public class CustomerController {
     private CustomerService customerService;
 
     @GetMapping
-    public String listCustomers(Model model) {
-        model.addAttribute("customers", customerService.findAllCustomers());
+    public String listCustomers(Model model, Pageable pageable) {
+        Page<Customer> page = customerService.findAllCustomers(pageable);
+        model.addAttribute("page", page);
         return "customers/list";
     }
 
@@ -38,15 +41,21 @@ public class CustomerController {
         return "redirect:/customers";
     }
 
-    @GetMapping("/edit/{id}")
+    @GetMapping("edit/{id}")
     public String showEditCustomerForm(@PathVariable("id") Integer id, Model model) {
         Optional<Customer> customer = customerService.findCustomerById(id);
         if (customer.isPresent()) {
             model.addAttribute("customer", customer.get());
-            return "customers/form";
+            return "customers/edit-form";
         } else {
             return "redirect:/customers";
         }
+    }
+
+    @PostMapping("edit/{id}")
+    public String updateCustomer(@PathVariable("id") Integer id, @ModelAttribute("customer") Customer customer) {
+        customerService.saveCustomer(customer);
+        return "redirect:/customers";
     }
 
     @GetMapping("/delete/{id}")

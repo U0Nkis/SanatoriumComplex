@@ -42,10 +42,22 @@ public class RoomController {
         Optional<Room> room = roomService.findRoomById(id);
         if (room.isPresent()) {
             model.addAttribute("room", room.get());
-            return "rooms/form";
+            return "rooms/edit-form";
         } else {
             return "redirect:/rooms";
         }
+    }
+
+    @PostMapping("edit/{id}")
+    public String updateRoom(@PathVariable("id") Integer id, @ModelAttribute("room") Room room) {
+        Optional<Room> existingRoomOpt = roomService.findRoomById(id);
+        if (existingRoomOpt.isPresent()) {
+            Room existingRoom = existingRoomOpt.get();
+            room.setRoomNumber(existingRoom.getRoomNumber());
+            room.setId(existingRoom.getId());
+            roomService.saveRoom(room);
+        }
+        return "redirect:/rooms";
     }
 
     @GetMapping("/delete/{id}")

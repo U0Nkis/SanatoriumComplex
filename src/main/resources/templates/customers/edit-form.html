@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${customer.id == null ? 'Add customer' : 'Edit customer'}"></title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<h1 th:text="${customer.id == null ? 'Add customer' : 'Edit customer'}"></h1>
+<form th:action="@{/customers/edit/{id}(id=${customer.id})}" th:object="${customer}" method="post">
+    <div>
+        <label for="firstName">Name:</label>
+        <input type="text" id="firstName" th:field="*{firstName}" required>
+        <span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></span>
+    </div>
+    <div>
+        <label for="lastName">Surname:</label>
+        <input type="text" id="lastName" th:field="*{lastName}" required>
+        <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></span>
+    </div>
+    <div>
+        <label for="dateOfBirth">Date of birth:</label>
+        <input type="text" id="dateOfBirth" th:field="*{dateOfBirth}" required>
+        <span th:if="${#fields.hasErrors('dateOfBirth')}" th:errors="*{dateOfBirth}"></span>
+    </div>
+    <div>
+        <label for="phone">Phone number:</label>
+        <input type="text" id="phone" th:field="*{phone}" required>
+        <span th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></span>
+    </div>
+    <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" th:field="*{email}">
+        <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+    </div>
+    <div>
+        <button type="submit">Save</button>
+        <a th:href="@{/customers}">Cancel</a>
+    </div>
+</form>
+</body>
+</html>

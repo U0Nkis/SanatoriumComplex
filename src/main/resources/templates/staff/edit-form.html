@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${staff.id == null ? 'Add Staff Member' : 'Edit Staff Member'}"></title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<h1 th:text="${staff.id == null ? 'Add Staff Member' : 'Edit Staff Member'}"></h1>
+<form th:action="@{/staff/edit/{id}(id=${staff.id})}" th:object="${staff}" method="post">
+    <div>
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" th:field="*{firstName}" readonly required>
+        <span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></span>
+    </div>
+    <div>
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" th:field="*{lastName}" required maxlength="100">
+        <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></span>
+    </div>
+    <div>
+        <label for="specialization">Specialization:</label>
+        <input type="text" id="specialization" th:field="*{specialization}" required maxlength="100">
+        <span th:if="${#fields.hasErrors('specialization')}" th:errors="*{specialization}"></span>
+    </div>
+    <div>
+        <button type="submit">Save</button>
+        <a th:href="@{/staff}">Cancel</a>
+    </div>
+</form>
+</body>
+</html>

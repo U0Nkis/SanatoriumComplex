@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${procedure.id == null ? 'Add procedure' : 'Edit procedure'}"></title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<h1 th:text="${procedure.id == null ? 'Add procedure' : 'Edit procedure'}"></h1>
+<form th:action="@{/procedures/edit/{id}(id=${procedure.id})}" th:object="${procedure}" method="post">
+    <div>
+        <label for="procedureName">Procedure name:</label>
+        <input type="text" id="procedureName" th:field="*{procedureName}" required>
+        <span th:if="${#fields.hasErrors('procedureName')}" th:errors="*{procedureName}"></span>
+    </div>
+    <div>
+        <label for="description">Description:</label>
+        <textarea id="description" th:field="*{description}" rows="4"></textarea>
+        <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
+    </div>
+    <div>
+        <label for="durationMinutes">Duration (minutes):</label>
+        <input type="number" id="durationMinutes" th:field="*{durationMinutes}" required min="1">
+        <span th:if="${#fields.hasErrors('durationMinutes')}" th:errors="*{durationMinutes}"></span>
+    </div>
+    <div>
+        <button type="submit">Save</button>
+        <a th:href="@{/procedures}">Cancel</a>
+    </div>
+</form>
+</body>
+</html>

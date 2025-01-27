@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>List of rooms</title>
+    <title>List of Hotel Rooms</title>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
@@ -24,25 +24,27 @@
         </nav>
     </div>
 </header>
-<h1>List of rooms</h1>
-<a th:href="@{/rooms/add}" class="btn">Add a new room</a>
+<h1>List of Hotel Rooms</h1>
+<a th:href="@{/hotel-room/add}" class="btn">Add a new room</a>
 <table>
     <thead>
     <tr>
         <th>ID</th>
-        <th>Room number</th>
-        <th>Capacity</th>
+        <th>Room Number</th>
+        <th>Bed Count</th>
+        <th>Price per Night</th>
         <th>Actions</th>
     </tr>
     </thead>
     <tbody>
-    <tr th:each="room : ${rooms}">
-        <td th:text="${room.id}"></td>
-        <td th:text="${room.roomNumber}"></td>
-        <td th:text="${room.capacity}"></td>
+    <tr th:each="hotelRoom : ${hotelRoom}">
+        <td th:text="${hotelRoom.id}"></td>
+        <td th:text="${hotelRoom.roomNumber}"></td>
+        <td th:text="${hotelRoom.bedCount}"></td>
+        <td th:text="${hotelRoom.pricePerNight}"></td>
         <td>
-            <a th:href="@{/rooms/edit/{id}(id=${room.id})}">Edit</a>
-            <a th:href="@{/rooms/delete/{id}(id=${room.id})}">Delete</a>
+            <a th:href="@{/hotel-room/edit/{id}(id=${hotelRoom.id})}">Edit</a>
+            <a th:href="@{/hotel-room/delete/{id}(id=${hotelRoom.id})}">Delete</a>
         </td>
     </tr>
     </tbody>
